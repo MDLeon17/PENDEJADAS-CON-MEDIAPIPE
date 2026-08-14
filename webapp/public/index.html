@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestureName | AI Registry</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <div class="container">
+        <header class="glass-panel main-header">
+            <div class="header-content">
+                <h1>Gesture<span>Name</span></h1>
+                <p>Advanced Computer Vision Registry</p>
+            </div>
+            <div class="instruction-badge">
+                <span class="pulse-dot"></span>
+                <p>Make a letter gesture, then <strong>close all fingers (fist)</strong> to type it.</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="glass-panel camera-section">
+                <div class="controls">
+                    <label for="camera-select">Video Source</label>
+                    <div class="select-wrapper">
+                        <select id="camera-select">
+                            <option value="">Loading cameras...</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="output_canvas"></canvas>
+                    <div id="loading" class="loading-overlay">
+                        <div class="spinner"></div>
+                        <span>Initializing AI Models...</span>
+                    </div>
+                    
+                    <div id="gesture-feedback" class="gesture-feedback">
+                        Waiting for gesture...
+                    </div>
+                    
+                    <img id="easter-egg-img" src="imagen.jpg" class="easter-egg" alt="Easter Egg">
+                    <audio id="easter-egg-audio" src="music.mp3" loop></audio>
+                </div>
+            </div>
+
+            <div class="glass-panel registration-section">
+                <div class="current-spelling">
+                    <h2>Spelling Board</h2>
+                    <div class="spelled-word-container">
+                        <div class="spelled-word" id="spelled-word"></div>
+                        <span class="cursor">|</span>
+                    </div>
+                    
+                    <div class="detection-box">
+                        <span class="label">Target Letter</span>
+                        <div class="detected-letter" id="detected-letter">-</div>
+                    </div>
+
+                    <div class="actions">
+                        <button id="clear-word-btn" class="btn btn-outline">Clear</button>
+                    </div>
+                </div>
+
+                <div class="register-action">
+                    <button id="register-btn" class="btn btn-primary" disabled>
+                        <span>Register Identity</span>
+                    </button>
+                    <div id="status-message" class="status-message"></div>
+                </div>
+            </div>
+        </main>
+
+        <section class="glass-panel registered-names-section">
+            <div class="section-header">
+                <h2>Registered Identities</h2>
+                <div class="line-decorator"></div>
+            </div>
+            <ul id="registered-names-list" class="names-list"></ul>
+        </section>
+    </div>
+
+    <!-- MediaPipe scripts -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
