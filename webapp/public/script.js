@@ -332,6 +332,13 @@ clearWordBtn.addEventListener("click", () => {
 function updateWordUI() {
     spelledWordEl.textContent = currentWord;
     registerBtn.disabled = currentWord.length < 4;
+    if (!currentWord.includes("EST_")) {
+        registerBtn.disabled = true;
+    }
+    const numberCount = (currentWord.match(/\d/g) || []).length;
+    if (numberCount < 2) {
+        registerBtn.disabled = true;
+    }
 }
 
 function showMessage(msg, type) {
