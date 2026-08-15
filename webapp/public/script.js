@@ -283,7 +283,7 @@ function detectLetter(currentState) {
             detectedLetterEl.textContent = "-";
         } else {
             gestureFeedback.textContent = "Release fist to detect new letter";
-        }
+        } 
         return;
     }
 
